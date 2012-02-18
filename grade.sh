@@ -11,6 +11,11 @@ if [ -z "$1" ]; then
     exit 0
 fi
 
+git tag | grep $hw &> /dev/null
+if [ $? -eq 1 ]; then
+    echo "$user hasn't completed $hw"
+    exit 1
+fi
 
 cd $user
 commit=`git log -n1 --pretty=format:%H $hw --`
