@@ -12,7 +12,7 @@ if [ -z "$1" ]; then
 fi
 
 git tag | grep $hw &> /dev/null
-if [ $? -eq 1 ]; then
+if [ $? -eq 0 ]; then
     echo "$user hasn't completed $hw"
     exit 1
 fi
